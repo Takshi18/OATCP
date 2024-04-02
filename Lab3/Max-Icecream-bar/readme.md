@@ -1,4 +1,11 @@
-# Largest Number
+
+
+  
+# Maximum Icecream Bars
+
+## Problem Statement:
+
+Given an array of integers representing the prices of ice cream bars and an integer representing the amount of money one has, find the maximum number of ice cream bars one can buy.
 
 ## Approach:
 
