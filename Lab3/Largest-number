@@ -1,0 +1,15 @@
+#Maximum-Icecream-Bars
+
+##Approach used - 
+
+###Step 1 
+- Sort the vector
+
+###Step 2
+- check for first element to be greater than coins I have, return 0 if yes.
+
+###Step 3
+- Run a loop, within loop check for each element to be less than or equal to coins I have, if yes increment the count variable by 1 and decrement the cons I have by current element of vector
+
+###step 4
+- Return count, which give the maximum number of icecream bars 
