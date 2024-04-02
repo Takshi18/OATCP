@@ -1,10 +1,18 @@
+# Maximum Icecream Bars
 
-Maximum-Icecream Bars
+## Approach:
 
-Approach used- 
+### Step 1: Convert Integers to Strings
+- Convert the given integer elements to strings and store them in a new string vector. This facilitates concatenation and comparison of numbers as strings.
 
-Step 1 - Convert given integer elements to string and store in a new string vector so as to concat and check
-Step 2 - Sort the newly generated string vector usinf=g custom comparator operator(lambda function)
-Step 3 - We have got the strings in the desired order. Now, concatanate the string vector elements into a string variable.
-Step 4 - Check for presence of any leading zero, if yes erase.
-Step 5 - Return the string variable.
+### Step 2: Sort the String Vector
+- Sort the newly generated string vector using a custom comparator operator (lambda function). This ensures the strings are sorted in the desired order, maximizing the resulting concatenation's numerical value.
+
+### Step 3: Concatenate Strings
+- After sorting, concatenate the string vector elements into a single string variable. This represents the largest possible number that can be formed.
+
+### Step 4: Remove Leading Zeros
+- Check for the presence of any leading zeros in the resulting string. If found, remove them to ensure the number is in its most concise and meaningful form.
+
+### Step 5: Return Result
+- Return the resulting string variable, representing the largest possible number formed by concatenating the integers from the input vector.
