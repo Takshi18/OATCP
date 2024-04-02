@@ -1,4 +1,4 @@
-# Maximum Icecream Bars
+# Largest Number
 
 ## Approach:
 
