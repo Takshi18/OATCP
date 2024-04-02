@@ -1,3 +1,4 @@
+Note : .txt file has both input and output
 
 # Maximum Icecream Bars
 
