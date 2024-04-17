@@ -1,1 +1,37 @@
 
+#include<bits/stdc++.h>
+using namespace std;
+
+
+string findMinInt(string s,int k){
+    string ans;
+    for(char c : s){
+        if(ans.length() && k && ans.back()>c){
+            ans.pop_back();
+            k--;
+        }
+
+        if(ans.length() || c!='0'){
+            ans.push_back(c);
+        }
+
+    }
+
+    while(ans.length() and k--){
+        ans.pop_back();
+    } 
+
+    return ans.empty()?"0":ans;   
+}
+
+int main(){
+    string s;
+    cin>>s;
+
+    int k;
+    cin>>k;
+
+    string ans = findMinInt(s,k);
+    cout<<ans<<endl;
+    return 0;
+}
