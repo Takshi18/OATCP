@@ -1,1 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
 
+
+int findMin(vector<int> &nums,int n){
+    int cnt =0;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            int res = nums[i] ^ nums[j];
+            cnt += __builtin_popcount(res);
+        }
+    }
+    return cnt;
+
+}
+
+int main(){
+    int n;
+    cin>>n;
+
+    vector<int> nums(n);
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+
+    int ans = findMin(nums,n);
+    cout<<ans<<endl;
+    return 0;
+
+}
