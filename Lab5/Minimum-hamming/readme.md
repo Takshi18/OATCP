@@ -1,14 +1,26 @@
-This code calculates the sum of Hamming distances between all pairs of integers in the given array nums. The Hamming distance between two integers is defined as the number of positions at which the corresponding bits are different.
+# Sum of Hamming Distances
 
-###Approach used:
+## Description
 
-##Nested Loops: The code uses two nested loops to iterate over all pairs of integers in the array nums. The outer loop iterates over each integer in the array, and the inner loop iterates over all integers following the current integer in the array.
+This code calculates the sum of Hamming distances between all pairs of integers in the given array `nums`. The Hamming distance between two integers is defined as the number of positions at which the corresponding bits are different.
 
-##Bitwise XOR Operation: For each pair of integers (nums[i], nums[j]), the code calculates the bitwise XOR (^) of the two integers.xor operator to know the difference in bits inside nested for loops
+## Approach
 
-##The code then uses __builtin_popcount function to count the number of set bits (bits with value 1) in the result
+- **Nested Loops**:
+  - The code uses two nested loops to iterate over all pairs of integers in the array `nums`.
+  - The outer loop iterates over each integer in the array.
+  - The inner loop iterates over all integers following the current integer in the array.
 
-##The count of set bits in the result of the XOR operation for each pair of integers is added to the total count cnt.
+- **Bitwise XOR Operation**:
+  - For each pair of integers `(nums[i], nums[j])`, the code calculates the bitwise XOR (`^`) of the two integers.
+  - The XOR operation reveals the difference in bits between the two integers.
 
-##Finally, the total count of Hamming distances between all pairs of integers in the array nums is returned
+- **Population Count**:
+  - The code then uses `__builtin_popcount` function to count the number of set bits (bits with value 1) in the result of the XOR operation.
+  - `__builtin_popcount` efficiently counts the number of set bits in an integer.
 
+- **Accumulation**:
+  - The count of set bits in the result of the XOR operation for each pair of integers is added to the total count `cnt`.
+
+- **Return Count**:
+  - Finally, the total count of Hamming distances between all pairs of integers in the array `nums` is returned.
