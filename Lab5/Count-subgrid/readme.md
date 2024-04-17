@@ -1,5 +1,5 @@
 
-This code solves the problem of counting the number of subgrids in an \(N \times N\) grid where all four corners are black (marked as 1). Here's an explanation of the approach:
+This code solves the problem of counting the number of subgrids in an \(n X n\) grid where all four corners are black (marked as 1). Here's an explanation of the approach:
 
 ### Preprocessing the Grid:
 The function `preprocess_grid` converts the input grid into a more compact representation suitable for efficient bitwise operations. 
