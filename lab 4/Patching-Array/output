@@ -1,1 +1,21 @@
+1. 
+INTPUT:
+n = 25
+size of vector = 4
+vector = 1 2 7 8
 
+
+OUTPUT:
+number of patch = 2
+
+------------------------------------------------------------
+2. 
+INPUT:
+n = 45
+vector size = 5
+vector = 1 3 6 9 10
+
+OUTPUT :
+number of patch = 2
+
+---------------------------------------------------------------
