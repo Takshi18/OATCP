@@ -1,1 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
 
+
+int countPatch(vector<int> &nums, int n ){
+    int reach = 0;
+    int cnt =0;
+    for(int i=0;i<nums.size() && reach < n;){
+        if(nums[i]<=reach+1){
+            reach = nums[i] + reach;
+            i++;
+        }
+        else{
+            reach = reach + (reach+1);
+            cnt++;
+        }
+    }
+
+    while(reach < n){
+        reach = reach + (reach+1);
+        cnt++;
+    }
+    return cnt;
+
+}
+
+int main(){
+    int n,vec_size;
+    cin>>n>>vec_size;
+
+    vector<int> nums(vec_size);
+    for(int i=0;i<vec_size;i++)cin>>nums[i];
+
+    int ans = countPatch(nums,n);
+    cout<<ans<<endl;
+    return 0;
+    
+}
