@@ -4,25 +4,29 @@ using namespace std;
 
 const int N = sizeof(unsigned int) * 8; // Number of bits in unsigned int
 
-vector<vector<unsigned int>> preprocess_grid(vector<vector<int>>& grid, int n) {
-    vector<vector<unsigned int>> processed_grid(n, vector<unsigned int>((n / N) + 1, 0));
+vector<unsigned int> preprocess_grid(const vector<vector<int>>& grid, int n) {
+    vector<unsigned int> processed_grid(n * ((n + N - 1) / N), 0);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (grid[i][j] == 1) {
-                processed_grid[i][j / N] |= (1 << (j % N));
+                processed_grid[i * ((n + N - 1) / N) + j / N] |= (1U << (j % N));
             }
         }
     }
     return processed_grid;
 }
 
-int count_subgrid(const vector<vector<unsigned int>>& processed_grid, int n) {
+int count_subgrid(const vector<unsigned int>& processed_grid, int n) {
     int subgrids = 0;
     for (int a = 0; a < n; a++) {
         for (int b = a + 1; b < n; b++) {
             int count = 0;
-            for (int k = 0; k <= n / N; k++) {
-                count += __builtin_popcount(processed_grid[a][k] & processed_grid[b][k]);
+            for (int k = 0; k < ((n + N - 1) / N); k++) {
+                unsigned int common_bits = processed_grid[a * ((n + N - 1) / N) + k] & processed_grid[b * ((n + N - 1) / N) + k];
+                while (common_bits) {
+                    count += common_bits & 1;
+                    common_bits >>= 1;
+                }
             }
             subgrids += ((count - 1) * count) / 2;
         }
@@ -41,7 +45,7 @@ int main() {
         }
     }
 
-    vector<vector<unsigned int>> processed_grid = preprocess_grid(grid, n);
+    vector<unsigned int> processed_grid = preprocess_grid(grid, n);
     int result = count_subgrid(processed_grid, n);
 
     cout << result << endl;
