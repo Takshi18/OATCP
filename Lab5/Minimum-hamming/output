@@ -1,1 +1,8 @@
-
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab5> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab5\" ; if ($?) { g++ tempCodeRunnerFile.cpp -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
+4
+8 5 13 27 25
+16
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab5> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab5\" ; if ($?) { g++ tempCodeRunnerFile.cpp -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
+8
+19 31 6 14 18 23 23 6
+55
