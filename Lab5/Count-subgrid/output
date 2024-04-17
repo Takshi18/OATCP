@@ -1,1 +1,21 @@
-
+PS C:\Users\tanu0\OneDrive\Documents\OACP> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab5\" ; if ($?) { g++ subgrid_2.cpp -o subgrid_2 } ; if ($?) { .\subgrid_2 }
+5
+0 1 0 0 1
+0 1 1 0 0
+1 0 0 0 0
+0 1 1 0 1
+0 0 0 0 0
+2
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab5> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab5\" ; if ($?) { g++ subgrid_2.cpp -o subgrid_2 } ; if ($?) { .\subgrid_2 }
+10
+0 0 0 1 0 0 1 0 0 1
+1 0 0 1 1 0 0 1 0 0
+1 0 1 1 0 1 0 1 1 1
+0 0 0 0 1 1 1 0 0 1
+0 0 0 1 0 0 1 0 0 1
+1 1 0 1 0 0 1 1 1 1
+0 0 0 0 0 0 0 0 1 1
+1 1 1 1 1 1 1 0 0 1
+1 0 0 1 0 1 0 0 1 1
+0 1 0 1 1 1 0 0 1 0
+112
