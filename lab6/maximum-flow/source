@@ -1,1 +1,80 @@
 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> parent; 
+
+bool BFS(vector<vector<int>> graph, int start, int end){
+    bool visited[graph.size()];
+    for (int x = 0; x < graph.size(); x++) {
+        visited[x] = false;
+        parent[x] = false;
+    }
+    queue<int> Q;
+    Q.push(start);
+    visited[start] = true;
+    parent[start] = -1;
+
+    while(!Q.empty()) {
+        int node = Q.front();
+        Q.pop();
+        for (int n = 0; n != graph.size(); n++) {
+            if (visited[n] == false && graph[node][n] > 0) {
+                Q.push(n);
+                parent[n] = node;
+                visited[n] = true;
+            }
+        }
+    }
+    return (visited[end] == true);
+}
+
+int fordFulkerson(std::vector<std::vector<int>> graph, int start, int end) {
+    int max_flow = 0;
+    vector<vector<int>> rgraph = graph;
+
+    parent.resize(graph.size());
+
+    while (BFS(rgraph, start, end)) {
+        int flow = INT_MAX;
+        int current_node;
+        
+        for (int x = end; x != start; x = parent[x]) {
+            current_node = parent[x];
+            flow = min(flow, rgraph[current_node][x]);
+        }
+        
+        for (int x = end; x != start; x = parent[x]) {
+            current_node = parent[x];
+        rgraph[current_node][x] -= flow;
+        rgraph[x][current_node] += flow;
+        }
+         
+        max_flow += flow;
+    
+    }
+    return max_flow;
+}
+
+int main(){
+    int V;
+    cin>>V;
+
+    vector<vector<int>> graph(V, vector<int>(V,0));
+
+    int s,t;
+    cin>>s>>t;
+
+    int edgecount;
+    cin>>edgecount;
+
+    for(int i=0;i<edgecount;i++){
+        int u,v,weights;
+        cin>>u>>v>>weights;
+        graph[u-1][v-1]=weights;
+    }
+
+    cout<<"Maximum Flow - "<< fordFulkerson(graph,s-1,t-1)<<endl;
+    return 0;
+}
