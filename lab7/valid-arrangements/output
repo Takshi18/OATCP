@@ -8,3 +8,16 @@ Enter the pairs:
 9 4
 Output:
 [11,9] [9,4] [4,5] [5,1] 
+
+
+
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab7> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab7\" ; if ($?) { g++ valid-arrangement.cpp -o valid-arrangement } ; if ($?) { .\valid-arrangement }
+
+Enter the number of pairs: 5
+Enter the pairs:
+3 1 
+2 5
+11 9
+9 4
+1 2
+No valid arrangement exist
