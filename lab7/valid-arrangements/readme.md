@@ -1,4 +1,4 @@
-## Eulerian Path Arrangement Solver
+## The implementation utilizes Eulerian path method
 
 ### Input
 The program takes input of pairs of numbers where each pair represents a relationship. For example:
