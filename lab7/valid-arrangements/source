@@ -73,11 +73,17 @@ int main() {
 
     vector<vector<int>> arrangement = solver.findValidArrangement(pairs);
 
-    cout << "Output:\n";
-    for (const auto& pair : arrangement) {
-        cout << "[" << pair[0] << "," << pair[1] << "] ";
+    if(arrangement.size() != numPairs){
+        cout<<"No valid arrangement exist"<<endl;
+
+    } 
+    else{
+        cout<< "Output:\n";
+        for (const auto& pair : arrangement) {
+            cout << "[" << pair[0] << "," << pair[1] << "] ";
+        }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }
