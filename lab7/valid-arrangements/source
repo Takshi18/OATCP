@@ -1,0 +1,83 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <stack>
+#include <algorithm>
+
+using namespace std;
+
+class ArrangementSolver {
+public:
+    vector<vector<int>> findValidArrangement(vector<vector<int>>& pairs) {
+        int numPairs = pairs.size();
+        // Eulerian Path
+        unordered_map<int, stack<int>> adjacent;
+        unordered_map<int, int> inDegree;
+        unordered_map<int, int> outDegree;
+        adjacent.reserve(numPairs);
+        inDegree.reserve(numPairs);
+        outDegree.reserve(numPairs);
+
+        // Constructing the adjacency list and updating in-degree and out-degree
+        for (int i = 0; i < numPairs; i++) {
+            int start = pairs[i][0], end = pairs[i][1];
+            inDegree[end]++;
+            outDegree[start]++;
+            adjacent[start].push(end);
+        }
+
+        // Finding the starting node
+        int startNode = -1;
+        for (auto& pair : adjacent) {
+            int node = pair.first;
+            if (outDegree[node] - inDegree[node] == 1) {
+                startNode = node;
+                break;
+            }
+        }
+
+        // If no start node with outdegree-indegree = 1 found, choose any node as start
+        if (startNode == -1) {
+            startNode = adjacent.begin()->first;
+        }
+
+        vector<vector<int>> result;
+        eulerianPath(adjacent, result, startNode);
+        reverse(result.begin(), result.end());
+        return result;
+    }
+
+private:
+    void eulerianPath(unordered_map<int, stack<int>>& adjacent, vector<vector<int>>& result, int current) {
+        auto& stack = adjacent[current];
+        while (!stack.empty()) {
+            int next = stack.top();
+            stack.pop();
+            eulerianPath(adjacent, result, next);
+            result.push_back({current, next});
+        }
+    }
+};
+
+int main() {
+    ArrangementSolver solver;
+    int numPairs;
+    cout << "Enter the number of pairs: ";
+    cin >> numPairs;
+    
+    vector<vector<int>> pairs(numPairs, vector<int>(2));
+    cout << "Enter the pairs:\n";
+    for (int i = 0; i < numPairs; i++) {
+        cin >> pairs[i][0] >> pairs[i][1];
+    }
+
+    vector<vector<int>> arrangement = solver.findValidArrangement(pairs);
+
+    cout << "Output:\n";
+    for (const auto& pair : arrangement) {
+        cout << "[" << pair[0] << "," << pair[1] << "] ";
+    }
+    cout << endl;
+
+    return 0;
+}
