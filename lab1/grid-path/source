@@ -1,0 +1,46 @@
+
+#include <bits/stdc++.h>
+#define ll long long int
+#define mod 1000000007
+using namespace std;
+
+ll solve(vector<string>& grid, ll N) {
+    vector<vector<ll>> dp(N, vector<ll>(N, 0));
+
+    for (int i = 0; i < N; i++) {
+        if (grid[i][0] == '*')
+            break;
+        dp[i][0] = 1;
+    }
+
+    for (int j = 0; j < N; j++) {
+        if (grid[0][j] == '*')
+            break;
+        dp[0][j] = 1;
+    }
+
+    for (int i = 1; i < N; i++) {
+        for (int j = 1; j < N; j++) {
+            if (grid[i][j] == '*')
+                continue;
+            dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % mod;
+        }
+    }
+
+    return dp[N - 1][N - 1];
+}
+
+int main() {
+    ll N;
+    
+    cin >> N;
+
+    vector<string> grid(N);
+    
+    for (int i = 0; i < N; i++) {
+        cin >> grid[i];
+    }
+
+    cout << "Number of ways" << solve(grid, N) << endl;
+    return 0;
+}
