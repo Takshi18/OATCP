@@ -1,0 +1,7 @@
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab1> cd "c:\Users\tanu0\OneDrive\Documents\OACP\lab1\" ; if ($?) { g++ dice.cpp -o dice } ; if ($?) { .\dice }
+4
+0
+12
+35
+-1
+1 1936 435170852 0
