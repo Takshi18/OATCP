@@ -1,6 +1,6 @@
 # Dice Problem Solution using Dynamic Programming
 
-## Problem Statement
+
 Given a standard six-sided dice, this algorithm aims to find the number of ways to achieve a sum of 'n' by rolling the dice.
 
 ## Approach
