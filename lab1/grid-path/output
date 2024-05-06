@@ -1,0 +1,16 @@
+PS C:\Users\tanu0\OneDrive\Documents\OACP\lab1> cd "c:\Users\tanu0\OneDrive\Documents\OACP\" ; if ($?) { g++ Lab_1_grid_path.cpp
+ -o Lab_1_grid_path } ; if ($?) { .\Lab_1_grid_path }
+2
+.*
+*.
+Number of ways0
+
+PS C:\Users\tanu0\OneDrive\Documents\OACP> cd "c:\Users\tanu0\OneDrive\Documents\OACP\" ; if ($?) { g++ Lab_1_grid_path.cpp -o Lab_1_grid_path } ; if ($?) { .\Lab_1_grid_path }
+5
+...*.
+..*..
+...**
+*..*.
+*....
+Number of ways9
+PS C:\Users\tanu0\OneDrive\Documents\OACP>
